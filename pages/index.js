@@ -1,6 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @next/next/no-sync-scripts */
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { Navbar, Dropdown, Avatar } from 'flowbite-react'
+import { HiChartPie, HiViewBoards, HiShoppingBag, HiInbox, HiUser, HiArrowSmRight, HiTable } from 'react-icons'
 
 export default function Home() {
   return (
@@ -11,59 +14,73 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+      <Navbar
+        fluid={true}
+        rounded={true}
+      >
+        <Navbar.Brand href="https://flowbite.com/">
+          <img
+            src="https://flowbite.com/docs/images/logo.svg"
+            className="mr-3 h-6 sm:h-9"
+            alt="Flowbite Logo"
+          />
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            Flowbite
           </span>
-        </a>
-      </footer>
+        </Navbar.Brand>
+        <div className="flex md:order-2">
+          <Dropdown
+            arrowIcon={false}
+            inline={true}
+            label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
+          >
+            <Dropdown.Header>
+              <span className="block text-sm">
+                Bonnie Green
+              </span>
+              <span className="block truncate text-sm font-medium">
+                name@flowbite.com
+              </span>
+            </Dropdown.Header>
+            <Dropdown.Item>
+              Dashboard
+            </Dropdown.Item>
+            <Dropdown.Item>
+              Settings
+            </Dropdown.Item>
+            <Dropdown.Item>
+              Earnings
+            </Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item>
+              Sign out
+            </Dropdown.Item>
+          </Dropdown>
+          <Navbar.Toggle />
+        </div>
+        <Navbar.Collapse>
+          <Navbar.Link
+            href="/navbars"
+            active={true}
+          >
+            Home
+          </Navbar.Link>
+          <Navbar.Link href="/navbars">
+            About
+          </Navbar.Link>
+          <Navbar.Link href="/navbars">
+            Services
+          </Navbar.Link>
+          <Navbar.Link href="/navbars">
+            Pricing
+          </Navbar.Link>
+          <Navbar.Link href="/navbars">
+            Contact
+          </Navbar.Link>
+        </Navbar.Collapse>
+      </Navbar>
+
+
     </div>
   )
 }
